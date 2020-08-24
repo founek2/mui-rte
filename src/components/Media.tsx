@@ -42,7 +42,7 @@ const Media: FunctionComponent<IMediaProps> = (props) => {
 
     const htmlTag = () => {
         const componentProps = {
-            src: url + token ? "?jwt=" + token : "",
+            src: token ? url + "?jwt=" + token : url,
             className: classNames(props.classes.root, {
                 [props.classes.editable]: !readOnly,
                 [props.classes.focused]: !readOnly && focusKey === props.block.getKey()
