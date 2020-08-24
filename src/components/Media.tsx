@@ -38,10 +38,11 @@ const styles = ({ shadows }: Theme) => createStyles({
 const Media: FunctionComponent<IMediaProps> = (props) => {
     const { url, width, height, alignment, type } = props.contentState.getEntity(props.block.getEntityAt(0)).getData()
     const { onClick, readOnly, focusKey } = props.blockProps
+    const token = localStorage.getItem("jwt")
 
     const htmlTag = () => {
         const componentProps = {
-            src: url,
+            src: url + token ? "?jwt=" + token : "",
             className: classNames(props.classes.root, {
                 [props.classes.editable]: !readOnly,
                 [props.classes.focused]: !readOnly && focusKey === props.block.getKey()
