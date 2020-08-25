@@ -48,7 +48,7 @@ const Media: FunctionComponent<IMediaProps> = (props) => {
                 [props.classes.focused]: !readOnly && focusKey === props.block.getKey()
             }),
             width: width,
-            height: type === "video" ? "auto" : height,
+            height: "auto",
             onClick: () => {
                 if (readOnly) {
                     return
